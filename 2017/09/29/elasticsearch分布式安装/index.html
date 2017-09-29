@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="Windows下ElasticSearch的安装 下载地址：https://www.elastic.co/cn/downloads 解压 -&amp;gt; 打开cmd命令窗口，进入目录cd E:\Elasticsearch\elasticsearch-5.6.1 运行 .\bin\elasticsearch 访问 127.0.0.1:9200">
+<meta name="description" content="将elasticsearch-5.6.1.zip多解压几份，解压出来的文件夹命名为elasticsearch-5.6.1-slave-1，elasticsearch-5.6.1-slave-2（命名随意，不冲突就行） 目前3份elasticsearch，修改各自的配置文件（在末尾添加）： elasticsearch-5.6.1\config\elasticsearch.yml    http.co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ElasticSearch的安装">
-<meta property="og:url" content="http://yoursite.com/2017/09/21/ElasticSearch的安装/index.html">
+<meta property="og:title" content="elasticsearch分布式安装">
+<meta property="og:url" content="http://yoursite.com/2017/09/29/elasticsearch分布式安装/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Windows下ElasticSearch的安装 下载地址：https://www.elastic.co/cn/downloads 解压 -&amp;gt; 打开cmd命令窗口，进入目录cd E:\Elasticsearch\elasticsearch-5.6.1 运行 .\bin\elasticsearch 访问 127.0.0.1:9200">
+<meta property="og:description" content="将elasticsearch-5.6.1.zip多解压几份，解压出来的文件夹命名为elasticsearch-5.6.1-slave-1，elasticsearch-5.6.1-slave-2（命名随意，不冲突就行） 目前3份elasticsearch，修改各自的配置文件（在末尾添加）： elasticsearch-5.6.1\config\elasticsearch.yml    http.co">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/uploads/1.png">
-<meta property="og:updated_time" content="2017-09-21T09:47:16.600Z">
+<meta property="og:image" content="http://yoursite.com/uploads/4.png">
+<meta property="og:updated_time" content="2017-09-29T07:21:49.399Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ElasticSearch的安装">
-<meta name="twitter:description" content="Windows下ElasticSearch的安装 下载地址：https://www.elastic.co/cn/downloads 解压 -&amp;gt; 打开cmd命令窗口，进入目录cd E:\Elasticsearch\elasticsearch-5.6.1 运行 .\bin\elasticsearch 访问 127.0.0.1:9200">
-<meta name="twitter:image" content="http://yoursite.com/uploads/1.png">
+<meta name="twitter:title" content="elasticsearch分布式安装">
+<meta name="twitter:description" content="将elasticsearch-5.6.1.zip多解压几份，解压出来的文件夹命名为elasticsearch-5.6.1-slave-1，elasticsearch-5.6.1-slave-2（命名随意，不冲突就行） 目前3份elasticsearch，修改各自的配置文件（在末尾添加）： elasticsearch-5.6.1\config\elasticsearch.yml    http.co">
+<meta name="twitter:image" content="http://yoursite.com/uploads/4.png">
 
 
 
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/21/ElasticSearch的安装/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/29/elasticsearch分布式安装/"/>
 
 
 
 
 
-  <title>ElasticSearch的安装 | Hexo</title>
+  <title>elasticsearch分布式安装 | Hexo</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/21/ElasticSearch的安装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/29/elasticsearch分布式安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wu blogs">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ElasticSearch的安装</h1>
+          <h1 class="post-title" itemprop="name headline">elasticsearch分布式安装</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T17:28:12+08:00">
-                2017-09-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-29T15:11:31+08:00">
+                2017-09-29
               </time>
             
 
@@ -340,12 +340,23 @@
       
 
       
-        <p>Windows下ElasticSearch的安装</p>
-<p>下载地址：<a><a href="https://www.elastic.co/cn/downloads" target="_blank" rel="external">https://www.elastic.co/cn/downloads</a></a></p>
-<p>解压 -&gt; 打开cmd命令窗口，进入目录<br><b>cd E:\Elasticsearch\elasticsearch-5.6.1</b></p>
-<p>运行 <b>.\bin\elasticsearch</b></p>
-<p>访问 <b>127.0.0.1:9200<b></b></b></p>
-<p><img src="/uploads/1.png"></p>
+        <p>将elasticsearch-5.6.1.zip多解压几份，<br>解压出来的文件夹命名为elasticsearch-5.6.1-slave-1，elasticsearch-5.6.1-slave-2<br>（命名随意，不冲突就行）</p>
+<p>目前3份elasticsearch，修改各自的配置文件（在末尾添加）：</p>
+<p></p><h4>elasticsearch-5.6.1\config\elasticsearch.yml</h4><br>    http.cors.enabled: true<br>    http.cors.allow-origin: “*”<p></p>
+<pre><code>cluster.name: 我是manager
+node.name: master
+node.master: true
+
+network.host: 127.0.0.1
+</code></pre><p></p><h4>elasticsearch-5.6.1-slave-1\config\elasticsearch.yml</h4><br>    cluster.name: 我是manager<br>    node.name: slave1<p></p>
+<pre><code>network.host: 127.0.0.1
+http.port: 9201
+discovery.zen.ping.unicast.hosts: [&quot;127.0.0.1&quot;]
+</code></pre><p></p><h4>elasticsearch-5.6.1-slave-2\config\elasticsearch.yml</h4><br>    cluster.name: 我是manager<br>    node.name: slave2<p></p>
+<pre><code>network.host: 127.0.0.1
+http.port: 9202
+discovery.zen.ping.unicast.hosts: [&quot;127.0.0.1&quot;]
+</code></pre><p>然后运行elasticseach-head和上面3个elasticsearch<br>访问<b>localhost:9200</b>即可看到效果<br><img src="/uploads/4.png"></p>
 
       
     </div>
@@ -370,8 +381,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/04/UV-IP-PV-VV的区别/" rel="next" title="UV/IP/PV/VV的区别">
-                <i class="fa fa-chevron-left"></i> UV/IP/PV/VV的区别
+              <a href="/2017/09/29/elasticseach插件elasticseach-head的安装/" rel="next" title="elasticseach插件elasticseach-head的安装">
+                <i class="fa fa-chevron-left"></i> elasticseach插件elasticseach-head的安装
               </a>
             
           </div>
@@ -379,10 +390,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/29/elasticseach插件elasticseach-head的安装/" rel="prev" title="elasticseach插件elasticseach-head的安装">
-                elasticseach插件elasticseach-head的安装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -434,8 +441,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -479,6 +495,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">elasticsearch-5.6.1\config\elasticsearch.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">elasticsearch-5.6.1-slave-1\config\elasticsearch.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">elasticsearch-5.6.1-slave-2\config\elasticsearch.yml</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

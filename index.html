@@ -342,9 +342,12 @@
           
             <p>将elasticsearch-5.6.1.zip多解压几份，<br>解压出来的文件夹命名为elasticsearch-5.6.1-slave-1，elasticsearch-5.6.1-slave-2<br>（命名随意，不冲突就行）</p>
 <p>目前3份elasticsearch，修改各自的配置文件（在末尾添加）：</p>
-<p></p><h4>elasticsearch-5.6.1\config\elasticsearch.yml</h4><br>http.cors.enabled: true<br>http.cors.allow-origin: “*”<br>cluster.name: 我是manager<br>node.name: master<br>node.master: true<br>network.host: 127.0.0.1<p></p>
-<p></p><h3>elasticsearch-5.6.1-slave-1\config\elasticsearch.yml</h3><br>cluster.name: 我是manager<br>node.name: slave1<br>network.host: 127.0.0.1<br>http.port: 9201<br>discovery.zen.ping.unicast.hosts: [“127.0.0.1”]<p></p>
-<p></p><h4>elasticsearch-5.6.1-slave-2\config\elasticsearch.yml</h4><br>cluster.name: 我是manager<br>node.name: slave2<br>network.host: 127.0.0.1<br>http.port: 9202<br>discovery.zen.ping.unicast.hosts: [“127.0.0.1”]<p></p>
+<p></p><h2>elasticsearch-5.6.1\config\elasticsearch.yml</h2><p></p>
+<div style="font-weight:bold"><br>http.cors.enabled: true<br>http.cors.allow-origin: “*”<br>cluster.name: 我是manager<br>node.name: master<br>node.master: true<br>network.host: 127.0.0.1<br></div>
+
+
+<p></p><h2>elasticsearch-5.6.1-slave-1\config\elasticsearch.yml</h2><br>cluster.name: 我是manager<br>node.name: slave1<br>network.host: 127.0.0.1<br>http.port: 9201<br>discovery.zen.ping.unicast.hosts: [“127.0.0.1”]<p></p>
+<p></p><h2>elasticsearch-5.6.1-slave-2\config\elasticsearch.yml</h2><br>cluster.name: 我是manager<br>node.name: slave2<br>network.host: 127.0.0.1<br>http.port: 9202<br>discovery.zen.ping.unicast.hosts: [“127.0.0.1”]<p></p>
 <p><b>注意name和port不要冲突</b></p>
 <p>然后运行elasticseach-head和上面3个elasticsearch<br>访问<b>localhost:9200</b>即可看到效果<br><img src="/uploads/4.png"></p>
 

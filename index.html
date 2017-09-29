@@ -341,7 +341,7 @@
         
           
             <p>下载地址：<a><a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="external">https://github.com/mobz/elasticsearch-head</a></a></p>
-<p>解压 -&gt; 进入到目录<br><b>cd E:\Elasticsearch\elasticsearch-head</b></p>
+<p>解压后 -&gt; 进入到目录<br><b>cd E:\Elasticsearch\elasticsearch-head</b></p>
 <p>查看node版本 （大于6即可）<br>    <b>node -v</b></p>
 <p>再执行<br>    <b>npm install</b></p>
 <p>然后运行<br>    <b>npm run start</b></p>
@@ -349,7 +349,7 @@
 <p><img src="/uploads/2.png"></p>
 <p>ctrl+c 停止</p>
 <p>打开elasticsearch目录，进入到config,打开elasticsearch.yml文件，在最后面添加上<br><b>http.cors.enabled: true</b></p>
-<p>http.cors.allow-origin: “*”</p>
+<p><b>http.cors.allow-origin: “*”</b></p>
 <p>保存</p>
 <p>再分别运行elasticsearch和elasticsearch-head即可</p>
 <p><img src="/uploads/3.png"></p>

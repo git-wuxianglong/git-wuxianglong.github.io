@@ -94,19 +94,17 @@
 
 
 
-<meta name="description" content="Windows下ElasticSearch的安装 下载地址：https://www.elastic.co/cn/downloads 解压 -&amp;gt; 打开cmd命令窗口，进入目录cd E:\Elasticsearch\elasticsearch-5.6.1 运行 .\bin\elasticsearch 访问 127.0.0.1:9200">
+<meta name="description" content="安装    apt-get install vnstat使用 ip a 命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4（假设网卡名称是ens3）    由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件            # default interface">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ElasticSearch的安装">
-<meta property="og:url" content="http://yoursite.com/2017/09/21/ElasticSearch的安装/index.html">
+<meta property="og:title" content="ubuntu安装 vnStat 统计服务器流量">
+<meta property="og:url" content="http://yoursite.com/2017/10/09/ubuntu安装-vnStat-统计服务器流量/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Windows下ElasticSearch的安装 下载地址：https://www.elastic.co/cn/downloads 解压 -&amp;gt; 打开cmd命令窗口，进入目录cd E:\Elasticsearch\elasticsearch-5.6.1 运行 .\bin\elasticsearch 访问 127.0.0.1:9200">
+<meta property="og:description" content="安装    apt-get install vnstat使用 ip a 命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4（假设网卡名称是ens3）    由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件            # default interface">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/uploads/1.png">
-<meta property="og:updated_time" content="2017-09-21T09:47:16.600Z">
+<meta property="og:updated_time" content="2017-10-09T03:03:27.165Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ElasticSearch的安装">
-<meta name="twitter:description" content="Windows下ElasticSearch的安装 下载地址：https://www.elastic.co/cn/downloads 解压 -&amp;gt; 打开cmd命令窗口，进入目录cd E:\Elasticsearch\elasticsearch-5.6.1 运行 .\bin\elasticsearch 访问 127.0.0.1:9200">
-<meta name="twitter:image" content="http://yoursite.com/uploads/1.png">
+<meta name="twitter:title" content="ubuntu安装 vnStat 统计服务器流量">
+<meta name="twitter:description" content="安装    apt-get install vnstat使用 ip a 命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4（假设网卡名称是ens3）    由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件            # default interface">
 
 
 
@@ -135,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/21/ElasticSearch的安装/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/09/ubuntu安装-vnStat-统计服务器流量/"/>
 
 
 
 
 
-  <title>ElasticSearch的安装 | Hexo</title>
+  <title>ubuntu安装 vnStat 统计服务器流量 | Hexo</title>
   
 
 
@@ -273,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/21/ElasticSearch的安装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/09/ubuntu安装-vnStat-统计服务器流量/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wu blogs">
@@ -290,7 +288,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ElasticSearch的安装</h1>
+          <h1 class="post-title" itemprop="name headline">ubuntu安装 vnStat 统计服务器流量</h1>
         
 
         <div class="post-meta">
@@ -302,8 +300,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T17:28:12+08:00">
-                2017-09-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T10:32:36+08:00">
+                2017-10-09
               </time>
             
 
@@ -340,12 +338,17 @@
       
 
       
-        <p>Windows下ElasticSearch的安装</p>
-<p>下载地址：<a><a href="https://www.elastic.co/cn/downloads" target="_blank" rel="external">https://www.elastic.co/cn/downloads</a></a></p>
-<p>解压 -&gt; 打开cmd命令窗口，进入目录<br><b>cd E:\Elasticsearch\elasticsearch-5.6.1</b></p>
-<p>运行 <b>.\bin\elasticsearch</b></p>
-<p>访问 <b>127.0.0.1:9200<b></b></b></p>
-<p><img src="/uploads/1.png"></p>
+        <h3 style="margin-left: 10px">安装</h3><br><div style="background-color: #1B242F;padding: 1px"><br>    <p style="color: white; margin-left: 10px">apt-get install vnstat</p><br></div><br><br><br><h4>使用 ip a 命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4</h4><br>（假设网卡名称是ens3）<br><div style="margin-top: 10px;margin-bottom: 2px"><br>    <b>由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件</b><br></div><br><div style="background-color: #1B242F;padding: 2px"><br>    <p style="color: white;margin-left: 10px"><br>        # default interface<br>    </p><br>    <p style="color: white;margin-left: 10px"><br>        Interface “ens3”<br>    </p><br></div><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>接下来给这个网卡生成流量统计数据库</b><br></div><br><div style="background-color: #1B242F;padding: 2px"><br>    <p style="color: white;margin-left: 10px"><br>        vnstat -u -i ens3<br>    </p><br></div><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>此时我们进入数据库的目录 /var/lib/vnstat 会发现数据库文件的权限是 root 用户</b><br></div><br><div style="background-color: #1B242F;padding: 2px"><br>    <p style="color: white;margin-left: 10px">root@debian /var/lib/vnstat # ll</p><br>    <p style="color: white;margin-left: 10px">total 16</p><br>    <p style="color: white;margin-left: 10px">drwxr-xr-x 2 vnstat vnstat 4096 Aug 5 09:11 ./</p><br>    <p style="color: white;margin-left: 10px">drwxr-xr-x 27 root root 4096 Aug 5 09:11 ../</p><br>    <p style="color: white;margin-left: 10px">-rw-r–r– 1 vnstat vnstat 2792 Aug 5 09:11 ens3</p><br>    <p style="color: white;margin-left: 10px">-rw-r–r– 1 root root 2792 Aug 5 09:11 .ens3</p><br></div><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>这个情况会导致 vnstat 用户无法写入数据库，所以我们修改权限，首先，停止 vnStat 服务</b><br></div><br><div style="background-color: #1B242F;padding: 2px"><br>    <p style="color: white;margin-left: 10px"><br>        systemctl stop vnstat<br>    </p><br></div><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>然后修改 .ens3 文件的权限</b><br></div><br><br><div style="background-color: #1B242F;padding: 2px"><br>    <p style="color: white;margin-left: 10px"><br>        chown vnstat:vnstat /var/lib/vnstat/.ens3<br>    </p><br></div><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>再启动 vnStat 服务</b><br></div><br><div style="background-color: #1B242F;padding: 2px"><br>    <p style="color: white;margin-left: 10px"><br>        systemctl start vnstat<br>    </p><br></div><br><br><h3 style="margin-left: 10px">安装配置完成</h3>
+
+<p>一些常用的命令如下</p>
+<div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>查看当前实时流量</b><br></div><br><div style="background-color: #1B242F;padding: 2px"><br>    <p style="color: white;margin-left: 10px"><br>        vnstat -l<br>    </p><br></div>
+
+<div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>查看当天流量</b><br></div><br><div style="background-color: #1B242F;padding: 5px"><br>    <p style="color: white;margin-left: 10px"><br>        vnstat -d<br>    </p><br></div>
+
+<div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>查看当月流量</b><br></div><br><div style="background-color: #1B242F;padding: 2px"><br>    <p style="color: white;margin-left: 10px"><br>        vnstat -m<br>    </p><br></div>
+
+<div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>指定某个网卡可带 -i 参数，比如</b><br></div><br><div style="background-color: #1B242F;padding: 2px"><br>    <p style="color: white;margin-left: 10px"><br>        vnstat -l -i ens3<br>    </p><br></div><br><div style="margin-top: 5px;margin-bottom: 2px"><br>    <b>则只看 ens3 网卡当前的流量</b><br></div>
+
 
       
     </div>
@@ -370,8 +373,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/04/UV-IP-PV-VV的区别/" rel="next" title="UV/IP/PV/VV的区别">
-                <i class="fa fa-chevron-left"></i> UV/IP/PV/VV的区别
+              <a href="/2017/09/29/elasticsearch分布式安装/" rel="next" title="elasticsearch分布式安装">
+                <i class="fa fa-chevron-left"></i> elasticsearch分布式安装
               </a>
             
           </div>
@@ -379,10 +382,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/29/elasticseach插件elasticseach-head的安装/" rel="prev" title="elasticseach插件elasticseach-head的安装">
-                elasticseach插件elasticseach-head的安装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -434,8 +433,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -479,6 +487,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">使用 ip a 命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装配置完成</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

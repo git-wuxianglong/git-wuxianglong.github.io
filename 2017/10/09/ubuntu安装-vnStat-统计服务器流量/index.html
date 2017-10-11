@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="安装apt-get install vnstat使用  ip a 命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4（假设网卡名称是ens3）由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件    # default interface    Interface “ens3”">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-11T05:22:05.085Z">
+<meta property="og:updated_time" content="2017-10-11T05:23:44.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu安装 vnStat 统计服务器流量">
 <meta name="twitter:description" content="安装apt-get install vnstat使用  ip a 命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4（假设网卡名称是ens3）由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件    # default interface    Interface “ens3”">
@@ -342,15 +342,9 @@
 
 <p>一些常用的命令如下</p>
 <p><b>查看当前实时流量</b></p>
-<p style="color: red;margin-left: 10px"><br>    vnstat -l<br></p>
-
-<p><b>查看当天流量</b></p>
-<p style="color: red;margin-left: 10px"><br>    vnstat -d<br></p>
-
-<p><b>查看当月流量</b></p>
-<p style="color: red;margin-left: 10px"><br>    vnstat -m<br></p>
-
-<p><b>指定某个网卡可带 -i 参数，比如</b></p>
+<p></p><p style="color: red;margin-left: 10px"><br>    vnstat -l<br></p><br><b>查看当天流量</b><p></p>
+<p></p><p style="color: red;margin-left: 10px"><br>    vnstat -d<br></p><br><b>查看当月流量</b><p></p>
+<p></p><p style="color: red;margin-left: 10px"><br>    vnstat -m<br></p><br><b>指定某个网卡可带 -i 参数，比如</b><p></p>
 <p></p><p style="color: red;margin-left: 10px"><br>    vnstat -l -i ens3<br></p><br><b>则只看 ens3 网卡当前的流量</b><p></p>
 
       

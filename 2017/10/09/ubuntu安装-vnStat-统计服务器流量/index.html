@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="安装apt-get install vnstat使用  ip a 命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4（假设网卡名称是ens3）    由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件    # default interface     Interface “">
+<meta name="description" content="安装apt-get install vnstat使用  ip a 命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4（假设网卡名称是ens3）    由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件    # default interface    Interface “e">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu安装 vnStat 统计服务器流量">
 <meta property="og:url" content="http://yoursite.com/2017/10/09/ubuntu安装-vnStat-统计服务器流量/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="安装apt-get install vnstat使用  ip a 命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4（假设网卡名称是ens3）    由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件    # default interface     Interface “">
+<meta property="og:description" content="安装apt-get install vnstat使用  ip a 命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4（假设网卡名称是ens3）    由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件    # default interface    Interface “e">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-11T03:38:55.765Z">
+<meta property="og:updated_time" content="2017-10-11T03:41:39.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu安装 vnStat 统计服务器流量">
-<meta name="twitter:description" content="安装apt-get install vnstat使用  ip a 命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4（假设网卡名称是ens3）    由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件    # default interface     Interface “">
+<meta name="twitter:description" content="安装apt-get install vnstat使用  ip a 命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4（假设网卡名称是ens3）    由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件    # default interface    Interface “e">
 
 
 
@@ -338,7 +338,7 @@
       
 
       
-        <h3>安装</h3><br><u>apt-get install vnstat</u><br><br><h4>使用 <u> ip a </u>命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4</h4><br>（假设网卡名称是ens3）<br><div style="margin-top: 10px;margin-bottom: 2px"><br>    <b>由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件</b><br></div><br><p style="color: red;margin-left: 10px"><br>    # default interface <br><br>    Interface “ens3”<br></p><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>接下来给这个网卡生成流量统计数据库</b><br></div><br><p style="color: red;margin-left: 10px"><br>    vnstat -u -i ens3<br></p><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>此时我们进入数据库的目录 /var/lib/vnstat 会发现数据库文件的权限是 root 用户</b><br></div><br><p style="color: red;margin-left: 10px"><br>    root@debian /var/lib/vnstat # ll <br><br>    total 16 <br><br>    drwxr-xr-x 2 vnstat vnstat 4096 Aug 5 09:11 ./ <br><br>    drwxr-xr-x 27 root root 4096 Aug 5 09:11 ../ <br><br>    -rw-r–r– 1 vnstat vnstat 2792 Aug 5 09:11 ens3 <br><br>    -rw-r–r– 1 root root 2792 Aug 5 09:11 .ens3<br></p><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>这个情况会导致 vnstat 用户无法写入数据库，所以我们修改权限，首先，停止 vnStat 服务</b><br></div><br><p style="color: red;margin-left: 10px"><br>    systemctl stop vnstat<br></p><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>然后修改 .ens3 文件的权限</b><br></div><br><br><p style="color: red;margin-left: 10px"><br>    chown vnstat:vnstat /var/lib/vnstat/.ens3<br></p><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>再启动 vnStat 服务</b><br></div><br><p style="color: red;margin-left: 10px"><br>    systemctl start vnstat<br></p><br><br><h3>———————————————安装完成———————————————</h3>
+        <h3>安装</h3><br><u>apt-get install vnstat</u><br><br><h4>使用 <u> ip a </u>命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4</h4><br>（假设网卡名称是ens3）<br><div style="margin-top: 10px;margin-bottom: 2px"><br>    <b>由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件</b><br></div><br><p style="color: red;margin-left: 10px"><br>    # default interface<br>    Interface “ens3”<br></p><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>接下来给这个网卡生成流量统计数据库</b><br></div><br><p style="color: red;margin-left: 10px"><br>    vnstat -u -i ens3<br></p><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>此时我们进入数据库的目录 /var/lib/vnstat 会发现数据库文件的权限是 root 用户</b><br></div><br><p style="color: red;margin-left: 10px"><br>    root@debian /var/lib/vnstat # ll<br>    total 16<br>    drwxr-xr-x 2 vnstat vnstat 4096 Aug 5 09:11 ./<br>    drwxr-xr-x 27 root root 4096 Aug 5 09:11 ../<br>    -rw-r–r– 1 vnstat vnstat 2792 Aug 5 09:11 ens3<br>    -rw-r–r– 1 root root 2792 Aug 5 09:11 .ens3<br></p><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>这个情况会导致 vnstat 用户无法写入数据库，所以我们修改权限，首先，停止 vnStat 服务</b><br></div><br><p style="color: red;margin-left: 10px"><br>    systemctl stop vnstat<br></p><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>然后修改 .ens3 文件的权限</b><br></div><br><br><p style="color: red;margin-left: 10px"><br>    chown vnstat:vnstat /var/lib/vnstat/.ens3<br></p><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>再启动 vnStat 服务</b><br></div><br><p style="color: red;margin-left: 10px"><br>    systemctl start vnstat<br></p><br><br><h3>———————————————安装完成———————————————</h3>
 
 <p>一些常用的命令如下</p>
 <div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>查看当前实时流量</b><br></div><br><p style="color: red;margin-left: 10px"><br>    vnstat -l<br></p><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>查看当天流量</b><br></div><br><p style="color: red;margin-left: 10px"><br>    vnstat -d<br></p><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>查看当月流量</b><br></div><br><p style="color: red;margin-left: 10px"><br>    vnstat -m<br></p><br><br><div style="margin-top: 15px;margin-bottom: 2px"><br>    <b>指定某个网卡可带 -i 参数，比如</b><br></div><br><p style="color: red;margin-left: 10px"><br>    vnstat -l -i ens3<br></p><br><div style="margin-top: 5px;margin-bottom: 2px"><br>    <b>则只看 ens3 网卡当前的流量</b><br></div>

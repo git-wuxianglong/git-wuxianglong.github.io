@@ -583,6 +583,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -611,14 +633,24 @@
 
       
         
-          <h3>安装</h3><br><u>apt-get install vnstat</u><br><br><h4>使用 <u> ip a </u>命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4</h4><br>（假设网卡名称是ens3）<br><br><b>由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件</b><br><br><p style="color: red;margin-left: 10px"><br>    # default interface<br>    Interface “ens3”<br></p><br><br><b>接下来给这个网卡生成流量统计数据库</b><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/09/ubuntu安装-vnStat-统计服务器流量/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ apt-get install vnstat</div></pre></td></tr></table></figure>
+<h3 id="使用-ip-a-命令查看你机器的网卡名称，如果是全新的-iso-安装的-Debian-9，那么默认的网卡名称应该为-ens3-或-ens4-（假设网卡名称是ens3）"><a href="#使用-ip-a-命令查看你机器的网卡名称，如果是全新的-iso-安装的-Debian-9，那么默认的网卡名称应该为-ens3-或-ens4-（假设网卡名称是ens3）" class="headerlink" title="使用  ip a 命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4 （假设网卡名称是ens3）"></a>使用 <u> ip a </u>命令查看你机器的网卡名称，如果是全新的 iso 安装的 Debian 9，那么默认的网卡名称应该为 ens3 或 ens4 （假设网卡名称是ens3）</h3><h3 id="由于默认的配置文件还是旧的网卡名称-eth0-，所以我们修改-etc-vnstat-conf-文件"><a href="#由于默认的配置文件还是旧的网卡名称-eth0-，所以我们修改-etc-vnstat-conf-文件" class="headerlink" title="由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件"></a>由于默认的配置文件还是旧的网卡名称 eth0 ，所以我们修改 /etc/vnstat.conf 文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="comment"># default interface</span></div><div class="line">	Interface <span class="string">"ens3"</span></div></pre></td></tr></table></figure>
+<h3 id="接下来给这个网卡生成流量统计数据库"><a href="#接下来给这个网卡生成流量统计数据库" class="headerlink" title="接下来给这个网卡生成流量统计数据库"></a>接下来给这个网卡生成流量统计数据库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vnstat -u -i ens3</div></pre></td></tr></table></figure>
+<h3 id="此时我们进入数据库的目录-var-lib-vnstat-会发现数据库文件的权限是-root-用户"><a href="#此时我们进入数据库的目录-var-lib-vnstat-会发现数据库文件的权限是-root-用户" class="headerlink" title="此时我们进入数据库的目录 /var/lib/vnstat 会发现数据库文件的权限是 root 用户"></a>此时我们进入数据库的目录 /var/lib/vnstat 会发现数据库文件的权限是 root 用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ root@debian /var/lib/vnstat <span class="comment"># ll</span></div><div class="line">	total 16</div><div class="line">	drwxr-xr-x 2 vnstat vnstat 4096 Aug 5 09:11 ./</div><div class="line">	drwxr-xr-x 27 root root 4096 Aug 5 09:11 ../</div><div class="line">	-rw-r--r-- 1 vnstat vnstat 2792 Aug 5 09:11 ens3</div><div class="line">	-rw-r--r-- 1 root root 2792 Aug 5 09:11 .ens3</div></pre></td></tr></table></figure>
+<p>这个情况会导致 vnstat 用户无法写入数据库，所以我们修改权限，首先，停止 vnStat 服务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ systemctl stop vnstat</div></pre></td></tr></table></figure></p>
+<h3 id="然后修改-ens3-文件的权限"><a href="#然后修改-ens3-文件的权限" class="headerlink" title="然后修改 .ens3 文件的权限"></a>然后修改 .ens3 文件的权限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chown vnstat:vnstat /var/lib/vnstat/.ens3</div></pre></td></tr></table></figure>
+<h3 id="再启动-vnStat-服务"><a href="#再启动-vnStat-服务" class="headerlink" title="再启动 vnStat 服务"></a>再启动 vnStat 服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ systemctl start vnstat</div></pre></td></tr></table></figure>
+<h3>———————————————安装完成———————————————</h3>
+
+<p>一些常用的命令如下</p>
+<p><b>查看当前实时流量</b></p>
+<p></p><p style="color: red;margin-left: 10px"><br>    vnstat -l<br></p><br><b>查看当天流量</b><p></p>
+<p></p><p style="color: red;margin-left: 10px"><br>    vnstat -d<br></p><br><b>查看当月流量</b><p></p>
+<p></p><p style="color: red;margin-left: 10px"><br>    vnstat -m<br></p><br><b>指定某个网卡可带 -i 参数，比如</b><p></p>
+<p></p><p style="color: red;margin-left: 10px"><br>    vnstat -l -i ens3<br></p><br><b>则只看 ens3 网卡当前的流量</b><p></p>
+
+          
         
       
     </div>
@@ -1347,7 +1379,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
